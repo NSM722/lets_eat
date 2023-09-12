@@ -17,8 +17,12 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Navigation & Multi-Screen Apps
 
+Navigation in flutter is like stacking/layering  screens
+
 ### Managing Screen stacks
 
 ### Tab Bar
 
-## Side Drawer
+### Side Drawer
+
+### [Transparent Image Placeholder package](https://pub.dev/packages/transparent_image/install)
