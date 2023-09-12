@@ -23,4 +23,6 @@ Navigation in flutter is like stacking/layering  screens
 
 ### Tab Bar
 
-## Side Drawer
+### Side Drawer
+
+### [Transparent Image Placeholder package](https://pub.dev/packages/transparent_image/install)
