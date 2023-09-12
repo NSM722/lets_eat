@@ -9,7 +9,7 @@ class CategoryGridItem extends StatelessWidget {
   });
 
   final Category category;
-  final void Function() onSelectCategory;
+  final void Function() onSelectCategory; // variable to expect the function
 
   @override
   Widget build(BuildContext context) {
