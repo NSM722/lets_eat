@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lets_eat/screens/meal_prep_details.dart';
 import 'package:lets_eat/screens/tabs.dart';
 import 'package:lets_eat/widgets/main_drawer.dart';
 
@@ -23,7 +22,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         onSelectScreen: (identifier) {
           Navigator.of(context).pop();
           if (identifier == 'meals') {
-            Navigator.of(context).push(MaterialPageRoute(
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (ctx) {
                 return const TabsScreen();
               },
