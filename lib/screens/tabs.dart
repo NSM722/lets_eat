@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lets_eat/models/meal.dart';
 import 'package:lets_eat/screens/categories.dart';
+import 'package:lets_eat/screens/filters.dart';
 import 'package:lets_eat/screens/meals.dart';
 import 'package:lets_eat/widgets/main_drawer.dart';
 
@@ -50,9 +51,13 @@ class _TabsScreenState extends State<TabsScreen> {
   }
 
   void _setScreen(String identifier) {
+    Navigator.of(context).pop(); // always close the drawer
     if (identifier == 'filters') {
-    } else {
-      Navigator.of(context).pop();
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) {
+          return const FiltersScreen();
+        },
+      ));
     }
   }
 
