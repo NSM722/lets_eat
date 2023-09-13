@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lets_eat/data/dummy_data.dart';
 import 'package:lets_eat/models/meal.dart';
 import 'package:lets_eat/screens/categories.dart';
 import 'package:lets_eat/screens/filters.dart';
@@ -87,6 +88,23 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // consider _selectedFilters
+    final availableMeals = dummyMeals.where((meal) {
+      if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
+        return false;
+      }
+      if (_selectedFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
+        return false;
+      }
+      if (_selectedFilters[Filter.vegan]! && !meal.isVegan) {
+        return false;
+      }
+      if (_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
+        return false;
+      }
+      return true;
+    }).toList();
+
     Widget activePage = CategoriesScreen(
       onToggleFavorite: _toggleFavoriteMeal,
     ); // default set Tab
