@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lets_eat/models/meal.dart';
 import 'package:lets_eat/screens/categories.dart';
 import 'package:lets_eat/screens/meals.dart';
+import 'package:lets_eat/widgets/main_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -20,7 +21,7 @@ class _TabsScreenState extends State<TabsScreen> {
       SnackBar(
         content: Text(message),
         backgroundColor: Colors.lightGreenAccent,
-        closeIconColor: Color.fromARGB(255, 28, 30, 16),
+        closeIconColor: const Color.fromARGB(255, 28, 30, 16),
         showCloseIcon: true,
       ),
     );
@@ -67,6 +68,7 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(activePageTitle),
       ),
+      drawer: const MainDrawer(),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex:
