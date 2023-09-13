@@ -44,6 +44,40 @@ class MainDrawer extends StatelessWidget {
               ],
             ),
           ),
+          ListTile(
+            // outputs items as a list
+            leading: Icon(
+              // leading --presented at the beginning
+              Icons.restaurant,
+              size: 24,
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
+            title: Text(
+              'Meals',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    fontSize: 22,
+                  ),
+            ),
+            onTap: () {},
+          ),
+          ListTile(
+            // outputs items as a list
+            leading: Icon(
+              // leading --presented at the beginning
+              Icons.settings_applications,
+              size: 24,
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
+            title: Text(
+              'Filters',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    fontSize: 22,
+                  ),
+            ),
+            onTap: () {},
+          ),
         ],
       ),
     );
