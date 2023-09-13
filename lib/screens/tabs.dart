@@ -50,14 +50,20 @@ class _TabsScreenState extends State<TabsScreen> {
     }
   }
 
-  void _setScreen(String identifier) {
+  void _setScreen(String identifier) async {
     Navigator.of(context).pop(); // always close the drawer
     if (identifier == 'filters') {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (ctx) {
-          return const FiltersScreen();
-        },
-      ));
+      // the result here is the Map data set(of filters) returned by navigating
+      // from the filters screen
+      final result = await Navigator.of(context).push<Map<Filter, bool>>(
+        MaterialPageRoute(
+          builder: (ctx) {
+            return const FiltersScreen();
+          },
+        ),
+      );
+      // verify returned data
+      print(result);
     }
   }
 
