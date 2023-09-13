@@ -106,6 +106,7 @@ class _TabsScreenState extends State<TabsScreen> {
     }).toList();
 
     Widget activePage = CategoriesScreen(
+      availableMeals: availableMeals,
       onToggleFavorite: _toggleFavoriteMeal,
     ); // default set Tab
     var activePageTitle = 'Categories';
