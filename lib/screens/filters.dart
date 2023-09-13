@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lets_eat/screens/tabs.dart';
-import 'package:lets_eat/widgets/main_drawer.dart';
+// import 'package:lets_eat/screens/tabs.dart';
+// import 'package:lets_eat/widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({super.key});
@@ -18,18 +18,18 @@ class _FiltersScreenState extends State<FiltersScreen> {
       appBar: AppBar(
         title: const Text('Your Filters'),
       ),
-      drawer: MainDrawer(
-        onSelectScreen: (identifier) {
-          Navigator.of(context).pop();
-          if (identifier == 'meals') {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (ctx) {
-                return const TabsScreen();
-              },
-            ));
-          }
-        },
-      ),
+      // drawer: MainDrawer(
+      //   onSelectScreen: (identifier) {
+      //     Navigator.of(context).pop();
+      //     if (identifier == 'meals') {
+      //       Navigator.of(context).pushReplacement(MaterialPageRoute(
+      //         builder: (ctx) {
+      //           return const TabsScreen();
+      //         },
+      //       ));
+      //     }
+      //   },
+      // ),
       body: Column(
         children: [
           SwitchListTile(
