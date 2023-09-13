@@ -19,6 +19,8 @@ samples, guidance on mobile development, and a full API reference.
 
 Navigation in flutter is like stacking/layering  screens
 
+[Name route navigation docs](https://docs.flutter.dev/development/ui/navigation#using-named-routes "not recommended")
+
 ### Managing Screen stacks
 
 ### Tab Bar
