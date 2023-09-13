@@ -5,6 +5,14 @@ import 'package:lets_eat/screens/filters.dart';
 import 'package:lets_eat/screens/meals.dart';
 import 'package:lets_eat/widgets/main_drawer.dart';
 
+const kInitialFilters = {
+  // global variable with default filters values
+  Filter.glutenFree: false,
+  Filter.lactoseFree: false,
+  Filter.vegetarian: false,
+  Filter.vegan: false,
+};
+
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
 
@@ -15,6 +23,12 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedPageIndex = 0;
   final List<Meal> _favoriteMeals = [];
+  Map<Filter, bool> _selectedFilters = {
+    Filter.glutenFree: false,
+    Filter.lactoseFree: false,
+    Filter.vegetarian: false,
+    Filter.vegan: false,
+  };
 
   void _showInfoMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
@@ -63,7 +77,11 @@ class _TabsScreenState extends State<TabsScreen> {
         ),
       );
       // verify returned data
-      print(result);
+      // print(result);
+      // update the filter values
+      setState(() {
+        _selectedFilters = result ?? kInitialFilters;
+      });
     }
   }
 
