@@ -92,8 +92,12 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // this ref property allows setting up of listeners to the provider
+    final meals = ref.watch(
+        mealsProvider); // Returns the value exposed by a provider and rebuild the widget when that value changes.
+
     // consider _selectedFilters
-    final availableMeals = dummyMeals.where((meal) {
+    final availableMeals = meals.where((meal) {
       if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
       }
