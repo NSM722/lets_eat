@@ -43,8 +43,10 @@ flutter pub add flutter_riverpod
 
 The below info-graphic shows the different approach when using **riverpod**
 
+![riverpod](https://github.com/NSM722/lets_eat/assets/83452606/b8c75614-264f-41bf-80d1-d90e818149d9)
+
 **Riverpod** has a central **Provider** which provides a dynamic value and also methods to change the value
 
 Then in the respective widgets that require this dynamic value one can create a **Consumer**
 
-In a consumer widget one can listen to or triggers changes to the dynamic value by using the methods provided by the **Provider**
+In a **Consumer Widget** one can listen to or trigger changes to the dynamic value by using the methods provided by the **Provider**
