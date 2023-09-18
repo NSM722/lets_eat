@@ -27,4 +27,9 @@ Navigation in flutter is like stacking/layering  screens
 
 ### Side Drawer
 
-### [Transparent Image Placeholder package](https://pub.dev/packages/transparent_image/install)
+### ["Transparent Image Placeholder package"](https://pub.dev/packages/transparent_image/install)
+
+## State Management
+
+### ["riverpod package"]()
+
