@@ -31,5 +31,8 @@ Navigation in flutter is like stacking/layering  screens
 
 ## State Management
 
+![state_mgmt](https://github.com/NSM722/lets_eat/assets/83452606/2ab5fe15-787c-4be1-a04b-53a2fc5c7d50)
+
+
 ### ["riverpod package"]()
 
