@@ -7,6 +7,7 @@ import 'package:lets_eat/screens/meals.dart';
 import 'package:lets_eat/widgets/main_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lets_eat/providers/meals_provider.dart';
+import 'package:lets_eat/providers/favoriteMeals_provider.dart';
 
 const kInitialFilters = {
   // global variable with default filters values
@@ -120,6 +121,9 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     var activePageTitle = 'Categories';
 
     if (_selectedPageIndex == 1) {
+      // favoriteMeals provider watcher
+      final favoriteMeals = ref.watch(favoriteMealsProvider);
+
       activePage = MealsScreen(
         meals: _favoriteMeals,
         onToggleFavorite: _toggleFavoriteMeal,
