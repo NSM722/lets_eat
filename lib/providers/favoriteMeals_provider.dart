@@ -9,19 +9,19 @@ class FavoriteMealsNotifier extends StateNotifier<List<Meal>> {
       : super([]); // initial data stored is empty & can't be mutated
 
   // method to edit the above data
-  void toggleFavoriteMeal(Meal meal) {
+  bool toggleFavoriteMeal(Meal meal) {
     final isMealFavorite = state.contains(meal);
 
     // if the meal is a favorite remove it from the list
     if (isMealFavorite) {
       // .where() returns a new list therefore not mutating original state
       state = state.where((element) => element.id != meal.id).toList();
+      return false;
     } else {
       // else if the meal isn't a favorite then add it
       state = [...state, meal];
+      return true;
     }
-
-    state = [];
   }
 }
 

@@ -33,23 +33,27 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     Filter.vegan: false,
   };
 
-  void _showInfoMessage(String message) {
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Colors.lightGreenAccent,
-        closeIconColor: const Color.fromARGB(255, 28, 30, 16),
-        showCloseIcon: true,
-      ),
-    );
-  }
-
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
   }
+
+  // void _toggleFavoriteMeal(Meal meal) {
+  //   final isalreadyAfavorite = _favoriteMeals.contains(meal);
+
+  //   if (isalreadyAfavorite) {
+  //     setState(() {
+  //       _favoriteMeals.remove(meal);
+  //       _showInfoMessage('Meal is no longer a favorite');
+  //     });
+  //   } else {
+  //     setState(() {
+  //       _favoriteMeals.add(meal);
+  //       _showInfoMessage('Meal marked as favorite');
+  //     });
+  //   }
+  // }
 
   void _setScreen(String identifier) async {
     Navigator.of(context).pop(); // always close the drawer
@@ -99,7 +103,6 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
 
     Widget activePage = CategoriesScreen(
       availableMeals: availableMeals,
-      onToggleFavorite: _toggleFavoriteMeal,
     ); // default set Tab
     var activePageTitle = 'Categories';
 
@@ -109,7 +112,6 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
 
       activePage = MealsScreen(
         meals: favoriteMeals,
-        onToggleFavorite: _toggleFavoriteMeal,
       );
       activePageTitle = 'Favorites';
     }

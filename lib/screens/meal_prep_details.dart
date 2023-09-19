@@ -22,9 +22,22 @@ class MealPrepDetailsScreen extends ConsumerWidget {
           IconButton(
             onPressed: () {
               // trigger the notifier method
-              ref
+              final wasMealAdded = ref
                   .read(favoriteMealsProvider.notifier)
                   .toggleFavoriteMeal(meal); // use read() not watch()
+              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    wasMealAdded
+                        ? 'Meal marked as favorite'
+                        : 'Meal is no longer a favorite',
+                  ),
+                  backgroundColor: Colors.lightGreenAccent,
+                  closeIconColor: const Color.fromARGB(255, 28, 30, 16),
+                  showCloseIcon: true,
+                ),
+              );
             },
             icon: const Icon(
               Icons.star,
