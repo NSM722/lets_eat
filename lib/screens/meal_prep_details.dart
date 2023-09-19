@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lets_eat/models/meal.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lets_eat/providers/favoriteMeals_provider.dart';
 
 class MealPrepDetailsScreen extends ConsumerWidget {
   const MealPrepDetailsScreen({
@@ -19,7 +20,12 @@ class MealPrepDetailsScreen extends ConsumerWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // trigger the notifier method
+              ref
+                  .read(favoriteMealsProvider.notifier)
+                  .toggleFavoriteMeal(meal); // use read() not watch()
+            },
             icon: const Icon(
               Icons.star,
             ),
