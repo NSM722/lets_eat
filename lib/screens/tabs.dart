@@ -39,22 +39,6 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     });
   }
 
-  // void _toggleFavoriteMeal(Meal meal) {
-  //   final isalreadyAfavorite = _favoriteMeals.contains(meal);
-
-  //   if (isalreadyAfavorite) {
-  //     setState(() {
-  //       _favoriteMeals.remove(meal);
-  //       _showInfoMessage('Meal is no longer a favorite');
-  //     });
-  //   } else {
-  //     setState(() {
-  //       _favoriteMeals.add(meal);
-  //       _showInfoMessage('Meal marked as favorite');
-  //     });
-  //   }
-  // }
-
   void _setScreen(String identifier) async {
     Navigator.of(context).pop(); // always close the drawer
     if (identifier == 'filters') {
