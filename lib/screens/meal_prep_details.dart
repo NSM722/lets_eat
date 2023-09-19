@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:lets_eat/models/meal.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lets_eat/providers/favoriteMeals_provider.dart';
 
-class MealPrepDetailsScreen extends StatelessWidget {
+class MealPrepDetailsScreen extends ConsumerWidget {
   const MealPrepDetailsScreen({
     super.key,
     required this.meal,
-    required this.onToggleFavorite,
   });
 
   final Meal meal;
-  final void Function(Meal meal) onToggleFavorite;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -21,7 +21,23 @@ class MealPrepDetailsScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              onToggleFavorite(meal);
+              // trigger the notifier method
+              final wasMealAdded = ref
+                  .read(favoriteMealsProvider.notifier)
+                  .toggleFavoriteMeal(meal); // use read() not watch()
+              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    wasMealAdded
+                        ? 'Meal marked as favorite'
+                        : 'Meal is no longer a favorite',
+                  ),
+                  backgroundColor: Colors.lightGreenAccent,
+                  closeIconColor: const Color.fromARGB(255, 28, 30, 16),
+                  showCloseIcon: true,
+                ),
+              );
             },
             icon: const Icon(
               Icons.star,
