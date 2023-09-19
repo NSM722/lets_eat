@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lets_eat/models/meal.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MealPrepDetailsScreen extends StatelessWidget {
   const MealPrepDetailsScreen({
