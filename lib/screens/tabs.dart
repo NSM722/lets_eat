@@ -26,7 +26,6 @@ class TabsScreen extends ConsumerStatefulWidget {
 
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
-  final List<Meal> _favoriteMeals = [];
   Map<Filter, bool> _selectedFilters = {
     Filter.glutenFree: false,
     Filter.lactoseFree: false,
@@ -50,22 +49,6 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     setState(() {
       _selectedPageIndex = index;
     });
-  }
-
-  void _toggleFavoriteMeal(Meal meal) {
-    final isalreadyAfavorite = _favoriteMeals.contains(meal);
-
-    if (isalreadyAfavorite) {
-      setState(() {
-        _favoriteMeals.remove(meal);
-        _showInfoMessage('Meal is no longer a favorite');
-      });
-    } else {
-      setState(() {
-        _favoriteMeals.add(meal);
-        _showInfoMessage('Meal marked as favorite');
-      });
-    }
   }
 
   void _setScreen(String identifier) async {
@@ -125,7 +108,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       final favoriteMeals = ref.watch(favoriteMealsProvider);
 
       activePage = MealsScreen(
-        meals: _favoriteMeals,
+        meals: favoriteMeals,
         onToggleFavorite: _toggleFavoriteMeal,
       );
       activePageTitle = 'Favorites';
