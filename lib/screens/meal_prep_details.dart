@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lets_eat/models/meal.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MealPrepDetailsScreen extends StatelessWidget {
+class MealPrepDetailsScreen extends ConsumerWidget {
   const MealPrepDetailsScreen({
     super.key,
     required this.meal,
@@ -11,7 +11,7 @@ class MealPrepDetailsScreen extends StatelessWidget {
   final Meal meal;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
