@@ -13,6 +13,11 @@ class MealPrepDetailsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // watch for these values in order to switch the favorite icon button
+    final favoriteMeals = ref.watch(favoriteMealsProvider);
+
+    final isFavorite = favoriteMeals.contains(meal);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -39,8 +44,8 @@ class MealPrepDetailsScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon: const Icon(
-              Icons.star,
+            icon: Icon(
+              isFavorite ? Icons.star : Icons.star_border,
             ),
           )
         ],

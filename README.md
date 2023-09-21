@@ -1,6 +1,6 @@
 # lets_eat
 
-A new Flutter project.
+A new [Flutter](https://docs.flutter.dev "Flutter docs") project.
 
 ## Getting Started
 
@@ -14,6 +14,8 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+### [Networking & http](https://docs.flutter.dev/data-and-backend/networking "read docs")
 
 ### Navigation & Multi-Screen Apps
 
@@ -50,3 +52,9 @@ The below info-graphic shows the different approach when using **riverpod**
 Then in the respective widgets that require this dynamic value one can create a **Consumer**
 
 In a **Consumer Widget** one can listen to or trigger changes to the dynamic value by using the methods provided by the **Provider**
+
+### [BLoc / Rx](https://docs.flutter.dev/data-and-backend/state-mgmt/options#bloc--rx "read docs")
+
+- [Architect your Flutter project using BLOC pattern](https://medium.com/codechai/architecting-your-flutter-project-bd04e144a8f1 "medium blog")
+- [BLoC library state management](https://bloclibrary.dev/#/ "read docs")
+- [Reactive programming - practical use cases](https://www.didierboelens.com/blog "flutter blog")
