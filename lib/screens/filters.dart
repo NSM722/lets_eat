@@ -11,18 +11,9 @@ class FiltersScreen extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<FiltersScreen> createState() => _FiltersScreenState();
-}
-
-class _FiltersScreenState extends ConsumerState<FiltersScreen> {
-  var _isGlutenFreeFilterSet = false;
-  var _isLactoseFreeFilterSet = false;
-  var _isVegetarianFreeFilterSet = false;
-  var _isVeganFreeFilterSet = false;
-
-  @override
   void initState() {
     super.initState();
+    // reading and initializing local state
     final activeFilters = ref.read(filtersProvider);
     // overwrite the initial state values to avoid a reset
     _isGlutenFreeFilterSet = activeFilters[Filter.glutenFree]!;
