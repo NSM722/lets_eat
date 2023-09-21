@@ -22,6 +22,7 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ### [Networking & http](https://docs.flutter.dev/data-and-backend/networking "read docs")
+- [JSON and serialization](https://docs.flutter.dev/data-and-backend/serialization/json "read docs")
 
 ### Navigation & Multi-Screen Apps
 
