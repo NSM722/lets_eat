@@ -4,6 +4,10 @@ A new [Flutter](https://docs.flutter.dev "Flutter docs") project
 
 [Flutter Cookbook Contents](https://docs.flutter.dev/cookbook "check contents")
 
+This cookbook contains recipes that demonstrate how to solve common problems while writing Flutter apps
+
+Each recipe is self-contained and can be used as a reference to help you build up an application
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
