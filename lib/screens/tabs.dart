@@ -4,7 +4,6 @@ import 'package:lets_eat/screens/filters.dart';
 import 'package:lets_eat/screens/meals.dart';
 import 'package:lets_eat/widgets/main_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lets_eat/providers/meals_provider.dart';
 import 'package:lets_eat/providers/favoriteMeals_provider.dart';
 import 'package:lets_eat/providers/filters_provider.dart';
 
@@ -55,28 +54,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // this ref property allows setting up of listeners to the provider
-    final meals = ref.watch(
-        mealsProvider); // Returns the value exposed by a provider and rebuild the widget when that value changes.
-
-    final activeFilters = ref.watch(filtersProvider);
-
-    // consider _selectedFilters
-    final availableMeals = meals.where((meal) {
-      if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
-        return false;
-      }
-      if (activeFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
-        return false;
-      }
-      if (activeFilters[Filter.vegan]! && !meal.isVegan) {
-        return false;
-      }
-      if (activeFilters[Filter.vegetarian]! && !meal.isVegetarian) {
-        return false;
-      }
-      return true;
-    }).toList();
+    final availableMeals = ref.watch(filteredMealsProvider);
 
     Widget activePage = CategoriesScreen(
       availableMeals: availableMeals,
