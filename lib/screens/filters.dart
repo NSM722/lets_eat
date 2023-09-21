@@ -11,23 +11,11 @@ class FiltersScreen extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Filters'),
       ),
-      // drawer: MainDrawer(
-      //   onSelectScreen: (identifier) {
-      //     Navigator.of(context).pop();
-      //     if (identifier == 'meals') {
-      //       Navigator.of(context).pushReplacement(MaterialPageRoute(
-      //         builder: (ctx) {
-      //           return const TabsScreen();
-      //         },
-      //       ));
-      //     }
-      //   },
-      // ),
       body: WillPopScope(
         // the function onWillPop() is invoked by
         // Flutter when the user leaves this screen
