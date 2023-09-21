@@ -50,3 +50,9 @@ The below info-graphic shows the different approach when using **riverpod**
 Then in the respective widgets that require this dynamic value one can create a **Consumer**
 
 In a **Consumer Widget** one can listen to or trigger changes to the dynamic value by using the methods provided by the **Provider**
+
+### [BLoc / Rx](https://docs.flutter.dev/data-and-backend/state-mgmt/options#bloc--rx "read docs")
+
+- [Architect your Flutter project using BLOC pattern](https://medium.com/codechai/architecting-your-flutter-project-bd04e144a8f1 "medium blog")
+- [BLoC library state management](https://bloclibrary.dev/#/ "read docs")
+- [Reactive programming - practical use cases](https://www.didierboelens.com/blog "flutter blog")
