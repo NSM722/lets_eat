@@ -5,22 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:lets_eat/widgets/main_drawer.dart';
 import 'package:lets_eat/providers/filters_provider.dart';
 
-class FiltersScreen extends ConsumerStatefulWidget {
+class FiltersScreen extends ConsumerWidget {
   const FiltersScreen({
     super.key,
   });
-
-  @override
-  void initState() {
-    super.initState();
-    // reading and initializing local state
-    final activeFilters = ref.read(filtersProvider);
-    // overwrite the initial state values to avoid a reset
-    _isGlutenFreeFilterSet = activeFilters[Filter.glutenFree]!;
-    _isLactoseFreeFilterSet = activeFilters[Filter.lactoseFree]!;
-    _isVeganFreeFilterSet = activeFilters[Filter.vegan]!;
-    _isVegetarianFreeFilterSet = activeFilters[Filter.vegetarian]!;
-  }
 
   @override
   Widget build(BuildContext context) {
