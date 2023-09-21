@@ -135,3 +135,14 @@ In a **Consumer Widget** one can listen to or trigger changes to the dynamic val
 - [Architect your Flutter project using BLOC pattern](https://medium.com/codechai/architecting-your-flutter-project-bd04e144a8f1 "medium blog")
 - [BLoC library state management](https://bloclibrary.dev/#/ "read docs")
 - [Reactive programming - practical use cases](https://www.didierboelens.com/blog "flutter blog")
+
+**BLoC Pattern**
+It is a state management system for Flutter recommended by Google developers
+
+It helps in managing state and make access to data from a central place in your project
+
+One can co-relate this architecture to ones such as ***MVC*** or ***MVVM*** whereby the third part of both is replaced by ***BLoC**
+
+Hence **BLoC** is the controller here
+
+In general terms, data will be flowing from the BLOC to the UI or from UI to the BLOC in the form of streams
