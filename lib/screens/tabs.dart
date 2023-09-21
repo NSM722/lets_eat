@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lets_eat/data/dummy_data.dart';
-import 'package:lets_eat/models/meal.dart';
 import 'package:lets_eat/screens/categories.dart';
 import 'package:lets_eat/screens/filters.dart';
 import 'package:lets_eat/screens/meals.dart';
@@ -8,6 +6,7 @@ import 'package:lets_eat/widgets/main_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lets_eat/providers/meals_provider.dart';
 import 'package:lets_eat/providers/favoriteMeals_provider.dart';
+import 'package:lets_eat/providers/filters_provider.dart';
 
 const kInitialFilters = {
   // global variable with default filters values
@@ -26,12 +25,6 @@ class TabsScreen extends ConsumerStatefulWidget {
 
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
-  Map<Filter, bool> _selectedFilters = {
-    Filter.glutenFree: false,
-    Filter.lactoseFree: false,
-    Filter.vegetarian: false,
-    Filter.vegan: false,
-  };
 
   void _selectPage(int index) {
     setState(() {
@@ -44,21 +37,19 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     if (identifier == 'filters') {
       // the result here is the Map data set(of filters) returned by navigating
       // from the filters screen
-      final result = await Navigator.of(context).push<Map<Filter, bool>>(
+      await Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(
           builder: (ctx) {
-            return FiltersScreen(
-              currentFilters: _selectedFilters,
-            );
+            return const FiltersScreen();
           },
         ),
       );
       // verify returned data
       // print(result);
       // update the filter values
-      setState(() {
-        _selectedFilters = result ?? kInitialFilters;
-      });
+      // setState(() {
+      //   _selectedFilters = result ?? kInitialFilters;
+      // });
     }
   }
 
@@ -68,18 +59,20 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     final meals = ref.watch(
         mealsProvider); // Returns the value exposed by a provider and rebuild the widget when that value changes.
 
+    final activeFilters = ref.watch(filtersProvider);
+
     // consider _selectedFilters
     final availableMeals = meals.where((meal) {
-      if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
+      if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
       }
-      if (_selectedFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
+      if (activeFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
         return false;
       }
-      if (_selectedFilters[Filter.vegan]! && !meal.isVegan) {
+      if (activeFilters[Filter.vegan]! && !meal.isVegan) {
         return false;
       }
-      if (_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
+      if (activeFilters[Filter.vegetarian]! && !meal.isVegetarian) {
         return false;
       }
       return true;
