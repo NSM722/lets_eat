@@ -89,10 +89,19 @@ class _CategoriesScreenState extends State<CategoriesScreen>
         ],
       ),
       builder: (context, child) {
-        return Padding(
-          padding: EdgeInsets.only(
-            // animate up to a padding of 100 within 2.5s
-            top: 100 - _animationController.value * 100,
+        return SlideTransition(
+          position: _animationController.drive(
+            // animate between two offset values
+            Tween(
+              begin: const Offset(
+                0,
+                0.25,
+              ),
+              end: const Offset(
+                0,
+                0,
+              ),
+            ),
           ),
           child: child,
         );
