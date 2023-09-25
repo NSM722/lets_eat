@@ -13,8 +13,23 @@ class CategoriesScreen extends StatefulWidget {
 
   final List<Meal> availableMeals;
 
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen> {
+  // this variable will not have a value before the class is created
+  late _animationController;
+
+  
+  @override
+  void initState() {
+    _animationController;
+    super.initState();
+  }
+
   void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = availableMeals
+    final filteredMeals = widget.availableMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
 
