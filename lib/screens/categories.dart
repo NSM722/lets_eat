@@ -93,7 +93,7 @@ class _CategoriesScreenState extends State<CategoriesScreen>
           child: child,
           padding: EdgeInsets.only(
             // animate up to a padding of 100 within 2.5s
-            top: _animationController.value * 100,
+            top: 100 - _animationController.value * 100,
           ),
         );
       },
