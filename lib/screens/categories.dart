@@ -5,7 +5,7 @@ import 'package:lets_eat/models/meal.dart';
 import 'package:lets_eat/screens/meals.dart';
 import 'package:lets_eat/widgets/category_grid_item.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({
     super.key,
     required this.availableMeals,
