@@ -39,10 +39,12 @@ class MealItem extends StatelessWidget {
         onTap: () {
           onSelectMealItem(meal);
         },
-        child: Stack(
-          children: [
-            // the bottom most widget
-            FadeInImage(
+        child: Stack(children: [
+          // the bottom most widget
+          Hero(
+            // tag uniquely identifies this FadeInImage on this screen and target screen
+            tag: meal.id,
+            child: FadeInImage(
               fit: BoxFit.cover,
               height: 220,
               width: double.infinity,
@@ -55,58 +57,54 @@ class MealItem extends StatelessWidget {
                 meal.imageUrl,
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                color: Colors.black54,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 7,
-                  horizontal: 42,
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      meal.title,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                          color: Colors.white70),
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      children: [
-                        MealItemMetaData(
-                          icon: Icons.schedule,
-                          label: '${meal.duration} min',
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        MealItemMetaData(
-                          icon: Icons.work_history,
-                          label: complexityText,
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        MealItemMetaData(
-                          icon: Icons.monetization_on,
-                          label: affordabilityText,
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              color: Colors.black54,
+              padding: const EdgeInsets.symmetric(
+                vertical: 7,
+                horizontal: 42,
               ),
-            )
-          ],
-        ),
+              child: Column(children: [
+                Text(
+                  meal.title,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                      color: Colors.white70),
+                ),
+                const SizedBox(height: 12),
+                Row(children: [
+                  MealItemMetaData(
+                    icon: Icons.schedule,
+                    label: '${meal.duration} min',
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  MealItemMetaData(
+                    icon: Icons.work_history,
+                    label: complexityText,
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  MealItemMetaData(
+                    icon: Icons.monetization_on,
+                    label: affordabilityText,
+                  )
+                ]),
+              ]),
+            ),
+          )
+        ]),
       ),
     );
   }
