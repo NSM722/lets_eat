@@ -49,7 +49,10 @@ class MealPrepDetailsScreen extends ConsumerWidget {
                 ),
                 transitionBuilder: (child, animation) {
                   return RotationTransition(
-                    turns: animation,
+                    turns: Tween(
+                      begin: 0.7,
+                      end: 1.0,
+                    ).animate(animation),
                     child: child,
                   );
                 },
