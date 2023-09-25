@@ -37,6 +37,9 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       lowerBound: 0,
       upperBound: 1,
     );
+
+    // explicitly start/play this animation
+    _animationController.forward();
   }
 
   // clean-up method to remove animation from device memory
