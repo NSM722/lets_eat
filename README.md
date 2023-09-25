@@ -22,6 +22,7 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ### [Networking & http](https://docs.flutter.dev/data-and-backend/networking "read docs")
+
 - [JSON and serialization](https://docs.flutter.dev/data-and-backend/serialization/json "read docs")
 
 ### Navigation & Multi-Screen Apps
@@ -152,3 +153,5 @@ In general terms, data will be flowing from the BLOC to the UI or from UI to the
 An explicit animation is controlled by the programmer and is a bit complex
 
 An implicit animation is controlled by flutter and is a lot less complex
+
+[Flutter pre-built Animation and Motion widgets](https://docs.flutter.dev/ui/widgets/animation "explore widgets")
