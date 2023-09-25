@@ -42,7 +42,8 @@ class MealItem extends StatelessWidget {
         child: Stack(children: [
           // the bottom most widget
           Hero(
-            tag: ,
+            // tag uniquely identifies this FadeInImage on this screen and target screen
+            tag: meal.id,
             child: FadeInImage(
               fit: BoxFit.cover,
               height: 220,
