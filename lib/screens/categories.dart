@@ -17,15 +17,33 @@ class CategoriesScreen extends StatefulWidget {
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
 
-class _CategoriesScreenState extends State<CategoriesScreen> {
+class _CategoriesScreenState extends State<CategoriesScreen>
+    with SingleTickerProviderStateMixin {
   // this variable will not have a value before the class is created
-  late _animationController;
+  late AnimationController _animationController;
 
-  
   @override
   void initState() {
-    _animationController;
     super.initState();
+
+    // initializing this value
+    _animationController = AnimationController(
+      // this vsync prop is required
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 2500,
+      ),
+      // animation default values added explicitly for translate
+      lowerBound: 0,
+      upperBound: 1,
+    );
+  }
+
+  // clean-up method to remove animation from device memory
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   void _selectCategory(BuildContext context, Category category) {
