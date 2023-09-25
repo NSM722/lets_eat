@@ -90,19 +90,19 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       ),
       builder: (context, child) {
         return SlideTransition(
-          position: _animationController.drive(
-            // animate between two offset values
-            Tween(
-              begin: const Offset(
-                0,
-                0.25,
-              ),
-              end: const Offset(
-                0,
-                0,
-              ),
+          position: Tween(
+            begin: const Offset(
+              0,
+              0.25,
             ),
-          ),
+            end: const Offset(
+              0,
+              0,
+            ),
+          ).animate(CurvedAnimation(
+            parent: _animationController,
+            curve: Curves.easeInOut,
+          )),
           child: child,
         );
       },
