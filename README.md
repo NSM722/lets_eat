@@ -146,3 +146,9 @@ One can co-relate this architecture to ones such as ***MVC*** or ***MVVM*** wher
 Hence **BLoC** is the controller here
 
 In general terms, data will be flowing from the BLOC to the UI or from UI to the BLOC in the form of streams
+
+### Explicit and Implicit animations
+
+An explicit animation is controlled by the programmer and is a bit complex
+
+An implicit animation is controlled by flutter and is a lot less complex
